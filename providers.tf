@@ -7,3 +7,12 @@ provider "azurerm" {
 
   }
 }
+
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "sb-tfstate-sa"
+    storage_account_name = "sbtfstateremote"
+    container_name       = "statefilecon"
+    key                  = "project2-terraform.tfstate"
+  }
+}
